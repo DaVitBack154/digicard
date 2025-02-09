@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { MdOutlineQrCodeScanner } from 'react-icons/md';
 import QrReader from './components/qr-scan';
-import { FourSquare, Mosaic } from 'react-loading-indicators';
+import { FourSquare } from 'react-loading-indicators';
 
 const Bookcard = () => {
   const [isScanner, setIsScanner] = useState(false);
