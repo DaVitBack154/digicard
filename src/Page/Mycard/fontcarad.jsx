@@ -63,7 +63,7 @@ const FontCard = () => {
 
         <Flex w={'100%'} alignItems={'center'} mb={4} px={1}>
           <Box w={'50%'}>
-            <Box display={'flex'} fontSize={'smaller'}>
+            <Box display={'flex'} fontSize={{ base: '12px', sm: '12px' }}>
               <Text fontWeight={'bold'}>D:</Text>
               <Text ml={1}>02-558-9009 Ext 1031</Text>
             </Box>

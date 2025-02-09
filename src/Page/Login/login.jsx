@@ -1,7 +1,7 @@
-import { Box, Text, Button } from '@chakra-ui/react';
+import { Box, Text, Button, Center } from '@chakra-ui/react';
 import { Checkbox, Form, Input } from 'antd';
-import { BsFillPersonCheckFill } from 'react-icons/bs';
-import { FaUnlockAlt } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import { FaLock } from 'react-icons/fa';
 
 const Login = () => {
   return (
@@ -9,7 +9,7 @@ const Login = () => {
       <Box>
         <Box
           w="100%"
-          h="250px"
+          h="160px"
           bgImage="/bglogin.png"
           bgSize="cover"
           bgPosition="center bottom"
@@ -20,8 +20,12 @@ const Login = () => {
           <Text>ยินดีต้อนรับ</Text>
           <Text>ลงชื่อเข้าใช้บัญชีของคุณ</Text>
         </Box>
-        <br />
-        <Box p={3}>
+
+        <Center p={1}>
+          <img src="/logo.png" alt="C" width={'150px'} />
+        </Center>
+
+        <Box p={3} mt={2}>
           <Form.Item
             name={'EUserName'}
             rules={[
@@ -32,13 +36,17 @@ const Login = () => {
             ]}
           >
             <Input
-              style={{ padding: '10px' }}
+              style={{
+                padding: '10px',
+                borderRadius: '20px',
+                background: '#F0F0F0',
+              }}
               prefix={
-                <BsFillPersonCheckFill
+                <MdEmail
                   style={{
-                    fontSize: '22px',
-                    marginRight: '10px',
-                    color: '#015352',
+                    fontSize: '18px',
+                    marginRight: '8px',
+                    color: '#ACACAC',
                   }}
                 />
               }
@@ -56,13 +64,17 @@ const Login = () => {
             ]}
           >
             <Input.Password
-              style={{ padding: '10px' }}
+              style={{
+                padding: '10px',
+                borderRadius: '20px',
+                background: '#F0F0F0',
+              }}
               prefix={
-                <FaUnlockAlt
+                <FaLock
                   style={{
-                    fontSize: '22px',
-                    marginRight: '10px',
-                    color: '#015352',
+                    fontSize: '18px',
+                    marginRight: '8px',
+                    color: '#ACACAC',
                   }}
                 />
               }
@@ -75,8 +87,8 @@ const Login = () => {
           </Form.Item>
 
           <Box w={'100%'}>
-            <Button w={'100%'} rounded={'10px'}>
-              Login
+            <Button w={'100%'} bg={'#395D5D'} color={'#FFFF'} rounded={'20px'}>
+              LOGIN
             </Button>
           </Box>
         </Box>
