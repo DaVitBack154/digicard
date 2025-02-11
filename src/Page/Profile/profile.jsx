@@ -6,9 +6,11 @@ import { HiOfficeBuilding } from 'react-icons/hi';
 import { FaEdit } from 'react-icons/fa';
 import { Modal, Form, Input } from 'antd';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Profile = () => {
   const [profiledata, setProfiledata] = useState(false);
+  const account = useSelector((state) => state.account);
   const UpdateprofileModal = () => {
     setProfiledata(true);
   };
@@ -23,7 +25,6 @@ const Profile = () => {
         borderTopRightRadius="20px"
         boxShadow={' rgba(0, 0, 0, 0.16) 0px 1px 4px;'}
       >
-        <br />
         <Box
           display={'flex'}
           justifyContent={'start'}
@@ -31,26 +32,28 @@ const Profile = () => {
           mb={3}
           w={'100%'}
         >
-          <Box w={'20%'}>
+          <Box w={'20%'} mt={2}>
             <Box p={1}>
-              <img src="/cr.png" alt="C" width={'50px'} />
+              <img src="/cr.png" alt="C" width={'60px'} />
             </Box>
           </Box>
-          <Box w={'65%'}>
-            <Box fontWeight={'bold'} fontSize={'12px'}>
-              Waruen Wanwanich
+          <Box w={'65%'} mt={4}>
+            <Box fontWeight={'600'} fontSize={'12px'}>
+              {account.profile.fname}
             </Box>
-            <Box fontSize={'11px'}>Programmer</Box>
+            <Box fontSize={'11px'} color={'gray.500'}>
+              {account.profile.position}
+            </Box>
             <Box display={'flex'}>
               <Box color={'#086f69'}>
                 <MdEmail size={16} />
               </Box>
-              <Box fontSize={'11px'} ml={1}>
-                waruen.css@gmail.com
+              <Box fontSize={'11px'} ml={1} color={'gray.500'}>
+                {account.profile.email}
               </Box>
             </Box>
           </Box>
-          <Box w={'15%'}>
+          <Box w={'15%'} mt={2}>
             <Center
               bg={'#FEF5E5'}
               color={'#F5BC00'}
@@ -66,7 +69,6 @@ const Profile = () => {
             </Center>
           </Box>
         </Box>
-
         <hr />
 
         <Box mt={3}>
@@ -76,10 +78,12 @@ const Profile = () => {
             </Box>
 
             <Box ml={3}>
-              <Box fontSize={'small'} fontWeight={'bold'}>
+              <Box fontSize={'small'} fontWeight={'600'}>
                 Name-TH
               </Box>
-              <Box fontSize={'small'}>นายวรุณ วรรณวานิช</Box>
+              <Box fontSize={'small'} color={'gray.500'} fontWeight={'500'}>
+                {account.profile.tname}
+              </Box>
             </Box>
           </Box>
           <Box
@@ -93,10 +97,12 @@ const Profile = () => {
             </Box>
 
             <Box ml={3}>
-              <Box fontSize={'small'} fontWeight={'bold'}>
+              <Box fontSize={'small'} fontWeight={'600'}>
                 Mobile
               </Box>
-              <Box fontSize={'small'}>098-099-0999</Box>
+              <Box fontSize={'small'} color={'gray.500'} fontWeight={'300'}>
+                {account.profile.phone}
+              </Box>
             </Box>
           </Box>
           <Box
@@ -110,10 +116,12 @@ const Profile = () => {
             </Box>
 
             <Box ml={3}>
-              <Box fontSize={'small'} fontWeight={'bold'}>
+              <Box fontSize={'small'} fontWeight={'600'}>
                 Office-Phone
               </Box>
-              <Box fontSize={'small'}>02-099-0990 (Ext-1303)</Box>
+              <Box fontSize={'small'} color={'gray.500'} fontWeight={'300'}>
+                0-2855-8222 (Ex {account.profile.phone_off})
+              </Box>
             </Box>
           </Box>
         </Box>

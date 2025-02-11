@@ -1,9 +1,16 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 
 const FontCard = () => {
+  const account = useSelector((state) => state.account);
   return (
     <>
-      <Box bg={'#FFF'} p={1}>
+      <Box
+        bg={'#FFF'}
+        p={1}
+        rounded={'8px'}
+        boxShadow={'rgba(0, 0, 0, 0.16) 0px 1px 4px;'}
+      >
         <Flex
           w={'100%'}
           justifyContent={'space-between'}
@@ -27,12 +34,12 @@ const FontCard = () => {
                 fontSize={'smaller'}
                 fontWeight={'bold'}
               >
-                Waruen Wanwanich
+                {account.profile.fname}
               </Text>
             </Flex>
 
-            <Text className="namelek" ml={3}>
-              Programmer
+            <Text fontSize={'11px'} color={'#9b9b9b'} ml={3}>
+              {account.profile.position}
             </Text>
           </Box>
           <Box>
@@ -46,9 +53,9 @@ const FontCard = () => {
         </Flex>
         <br />
         <br />
-        <br />
-        <Flex justifyContent={'end'} px={1}>
-          <Box position={'relative'} top={'-6px'} right={'-8px'}>
+
+        <Flex justifyContent={'end'} px={1} mt={2}>
+          <Box position={'relative'} top={'-6px'} right={'-10px'}>
             <img
               src="/red.png"
               alt="red"
@@ -56,35 +63,41 @@ const FontCard = () => {
               // style={{ borderRadius: '10px' }}
             />
           </Box>
-          <Text fontSize={'small'} fontWeight={'bold'}>
+          <Text fontSize={'13px'} fontWeight={'600'}>
             CHASE ASIA PCL
           </Text>
         </Flex>
 
         <Flex w={'100%'} alignItems={'center'} mb={4} px={1}>
           <Box w={'50%'}>
-            <Box display={'flex'} fontSize={{ base: '12px', sm: '12px' }}>
+            <Box display={'flex'} className="nameall">
               <Text fontWeight={'bold'}>D:</Text>
-              <Text ml={1}>02-558-9009 Ext 1031</Text>
+              <Text ml={1} className="detail">
+                02-558-9009 ({account.profile.phone_off})
+              </Text>
             </Box>
-            <Box display={'flex'} fontSize={'smaller'}>
+            <Box display={'flex'} className="nameall">
               <Text fontWeight={'bold'}>M:</Text>
-              <Text ml={1}>098-090-0099</Text>
+              <Text ml={1} className="detail">
+                {account.profile.phone}
+              </Text>
             </Box>
-            <Box display={'flex'} fontSize={'smaller'}>
+            <Box display={'flex'} className="nameall">
               <Text fontWeight={'bold'}>E:</Text>
-              <Text ml={1}>waruen.css@gmail.com</Text>
+              <Text ml={1} className="detail">
+                {account.profile.email}
+              </Text>
             </Box>
           </Box>
-          <Box w={'50%'}>
-            <Box fontSize={'smaller'} textAlign={'end'}>
-              <Text>34/6 Changwatana Road</Text>
+          <Box w={'50%'} className="nameall">
+            <Box textAlign={'end'}>
+              <Text className="detail">34/6 Changwatana Road</Text>
             </Box>
-            <Box fontSize={'smaller'} textAlign={'end'}>
-              <Text>Klong kluea Paket</Text>
+            <Box textAlign={'end'}>
+              <Text className="detail">Klong kluea Paket</Text>
             </Box>
-            <Box fontSize={'smaller'} textAlign={'end'}>
-              <Text>Nontaburi 10130</Text>
+            <Box textAlign={'end'}>
+              <Text className="detail">Nontaburi 10130</Text>
             </Box>
           </Box>
         </Flex>

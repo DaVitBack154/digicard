@@ -1,24 +1,24 @@
-import { Box, Text, Flex, Center } from '@chakra-ui/react';
-import { IoMdAddCircle } from 'react-icons/io';
+import { Box, Text, Flex } from '@chakra-ui/react';
+import { FaCreditCard } from 'react-icons/fa6';
 import { Modal } from 'antd';
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { GoArrowSwitch } from 'react-icons/go';
 import { IoQrCode } from 'react-icons/io5';
-import { RiDeleteBin6Fill } from 'react-icons/ri';
+// import { RiDeleteBin6Fill } from 'react-icons/ri';
 import FontCard from './fontcarad';
 import QrTab from './qrtab';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 const Mycard = () => {
-  const [addCard, setaddCard] = useState(false);
+  // const [addCard, setaddCard] = useState(false);
   const [showCard, setshowCard] = useState(false);
   const [flipCard, setflipCard] = useState(false);
   const [showQrcode, setshowQrcode] = useState(false);
 
-  const addCardModal = () => {
-    setaddCard(true);
-  };
+  // const addCardModal = () => {
+  //   setaddCard(true);
+  // };
 
   const showCardModal = () => {
     setshowCard(true);
@@ -32,29 +32,39 @@ const Mycard = () => {
     setshowQrcode(true);
   };
 
-  const handleDelete = () => {
-    Swal.fire({
-      // title: 'คุณต้องการลบข้อมูลหรือไม่?',
-      text: 'คุณต้องการลบข้อมูลหรือไม่?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'Cancel',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('ลบแล้ว!', 'ข้อมูลของคุณถูกลบเรียบร้อยแล้ว.', 'success');
-        // ทำคำสั่งลบข้อมูลที่นี่
-      }
-    });
-  };
+  // const handleDelete = () => {
+  //   Swal.fire({
+  //     // title: 'คุณต้องการลบข้อมูลหรือไม่?',
+  //     text: 'คุณต้องการลบข้อมูลหรือไม่?',
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#d33',
+  //     cancelButtonColor: '#3085d6',
+  //     confirmButtonText: 'Yes',
+  //     cancelButtonText: 'Cancel',
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       Swal.fire('ลบแล้ว!', 'ข้อมูลของคุณถูกลบเรียบร้อยแล้ว.', 'success');
+  //       // ทำคำสั่งลบข้อมูลที่นี่
+  //     }
+  //   });
+  // };
 
   return (
     <>
-      <Flex w={'100%'} justifyContent={'space-between'} alignItems={'center'}>
-        <Text>สร้างนามบัตรของคุณ</Text>
-        <Center
+      <Flex w={'100%'} justifyContent={'start'} alignItems={'center'}>
+        <Box
+          p={1}
+          bg={'#FEF5E5'}
+          color={'#F5BC00'}
+          cursor={'pointer'}
+          rounded={'5px'}
+          border={'1px'}
+        >
+          <FaCreditCard size={20} />
+        </Box>
+        <Text ml={2}>รายการนามบัตรของคุณ</Text>
+        {/* <Center
           p={1}
           bg={'#25605d'}
           color={'#FFFF'}
@@ -63,11 +73,11 @@ const Mycard = () => {
           onClick={addCardModal}
         >
           <IoMdAddCircle size={24} />
-        </Center>
+        </Center> */}
       </Flex>
 
       {/* ในส่วนฟังชั่น บัตร */}
-      <Box mt={5}>
+      <Box mt={3}>
         {flipCard ? (
           <Box w={'100%'}>
             <FontCard />
@@ -77,17 +87,18 @@ const Mycard = () => {
             <img
               src="/back_chase.jpg"
               alt="back_chase"
-              // style={{ borderRadius: '10px' }}
+              style={{ borderRadius: '8px' }}
             />
           </Box>
         )}
       </Box>
-      <Box bg={'#FFF'} w={'100%'}>
+
+      <Box bg={'#FFF'} w={'100%'} mt={3} rounded={'6px'}>
         <Flex
           w={'100%'}
           justifyContent={'space-around'}
           py={2}
-          boxShadow={'rgba(0, 0, 0, 0.16) 0px 1px 4px;'}
+          // boxShadow={'rgba(0, 0, 0, 0.16) 0px 1px 4px;'}
         >
           <Box cursor={'pointer'} onClick={showCardModal}>
             <Box
@@ -119,7 +130,7 @@ const Mycard = () => {
               <IoQrCode size={18} />
             </Box>
           </Box>
-          <Box cursor={'pointer'} onClick={handleDelete}>
+          {/* <Box cursor={'pointer'} onClick={handleDelete}>
             <Box
               p={2}
               background={'#dbf3f2'}
@@ -128,13 +139,13 @@ const Mycard = () => {
             >
               <RiDeleteBin6Fill size={18} />
             </Box>
-          </Box>
+          </Box> */}
         </Flex>
       </Box>
       {/* ในส่วนฟังชั่น บัตร */}
 
       {/* ในส่วน Modal สร้างบัตร */}
-      <Modal
+      {/* <Modal
         title="สร้างนามบัตร"
         open={addCard}
         onCancel={() => setaddCard(false)}
@@ -152,7 +163,7 @@ const Mycard = () => {
             </Box>
           </Box>
         </>
-      </Modal>
+      </Modal> */}
       {/* ในส่วน Modal สร้างบัตร */}
 
       {/* ในส่วน Modal showCard */}
