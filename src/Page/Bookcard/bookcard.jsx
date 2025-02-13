@@ -43,7 +43,7 @@ const Bookcard = () => {
       postImage();
     }
   }, [resScaner]);
-  console.log(resData);
+  // console.log(resData);
   return (
     <>
       {resScaner ? (

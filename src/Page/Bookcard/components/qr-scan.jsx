@@ -27,10 +27,10 @@ const QrReader = ({ setIsScanner, setResScaner }) => {
               (decodedText) => {
                 console.log('QR Code detected:', decodedText);
                 setResScaner(decodedText);
-              },
-              (errorMessage) => {
-                console.warn('QR Code scan error:', errorMessage);
               }
+              // (errorMessage) => {
+              //   console.warn('QR Code scan error:', errorMessage);
+              // }
             );
           }
         } catch (error) {

@@ -10,7 +10,7 @@ const Navbar = () => {
   const account = useSelector((state) => state.account);
   const dispatch = useDispatch();
 
-  console.log(account.profile.fname, 'ooo');
+  // console.log(account.profile.fname, 'ooo');
   const onSignOutPress = async () => {
     await persistor.purge();
     dispatch(resetState());

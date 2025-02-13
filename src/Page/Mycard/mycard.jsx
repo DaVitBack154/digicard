@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { GoArrowSwitch } from 'react-icons/go';
 import { IoQrCode } from 'react-icons/io5';
+import axiosInstance from '../../utils/axiosConfig';
 // import { RiDeleteBin6Fill } from 'react-icons/ri';
 import FontCard from './fontcarad';
 import QrTab from './qrtab';
@@ -15,6 +16,7 @@ const Mycard = () => {
   const [showCard, setshowCard] = useState(false);
   const [flipCard, setflipCard] = useState(false);
   const [showQrcode, setshowQrcode] = useState(false);
+  const [tokenQrCode, setTokenQrCode] = useState('');
 
   // const addCardModal = () => {
   //   setaddCard(true);
@@ -28,8 +30,16 @@ const Mycard = () => {
     setflipCard(!flipCard);
   };
 
-  const showQrCode = () => {
-    setshowQrcode(true);
+  const showQrCode = async () => {
+    try {
+      const _res = await axiosInstance.get('/genTokenQrCode');
+      if (_res.status === 200) {
+        setTokenQrCode(_res.data?.data);
+        setshowQrcode(true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // const handleDelete = () => {
@@ -85,7 +95,7 @@ const Mycard = () => {
         ) : (
           <Box w={'100%'}>
             <img
-              src="/back_chase.jpg"
+              src="/back_card.png"
               alt="back_chase"
               style={{ borderRadius: '8px' }}
             />
@@ -179,11 +189,15 @@ const Mycard = () => {
         <>
           <Box>
             <Box w={'100%'} mt={5}>
-              <Box
-                rounded={'10px'}
-                boxShadow={' rgba(0, 0, 0, 0.24) 0px 3px 8px;'}
-              >
-                <img src="/theme_chase.jpg" alt="chase" />
+              <FontCard />
+            </Box>
+            <Box w={'100%'} mt={5}>
+              <Box w={'100%'}>
+                <img
+                  src="/back_card.png"
+                  alt="back_chase"
+                  style={{ borderRadius: '8px' }}
+                />
               </Box>
             </Box>
           </Box>
@@ -204,7 +218,7 @@ const Mycard = () => {
         <>
           <Box>
             <Box w={'100%'} mt={5}>
-              <QrTab />
+              <QrTab tokenQrCode={tokenQrCode} />
             </Box>
           </Box>
         </>

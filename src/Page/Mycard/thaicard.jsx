@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 
-const FontCard = () => {
+const FontThaiCard = () => {
   const account = useSelector((state) => state.account);
   return (
     <>
@@ -34,7 +34,7 @@ const FontCard = () => {
                 fontSize={'smaller'}
                 fontWeight={'bold'}
               >
-                {account.profile.fname}
+                {account.profile.tname}
               </Text>
             </Flex>
 
@@ -54,50 +54,47 @@ const FontCard = () => {
         <br />
         <br />
         <br />
-        <Flex justifyContent={'end'} px={1} mt={2}>
-          <Box position={'relative'} top={'-6px'} right={'-10px'}>
-            <img
-              src="/red.png"
-              alt="red"
-              width={'18px'}
-              // style={{ borderRadius: '10px' }}
-            />
-          </Box>
-          <Text fontSize={'13px'} fontWeight={'600'}>
-            CHASE ASIA PCL
-          </Text>
-        </Flex>
 
         <Flex w={'100%'} alignItems={'center'} mb={2} px={1}>
-          <Box w={'50%'}>
-            <Box display={'flex'} className="nameall">
+          <Box w={'45%'}>
+            <Box display={'flex'} className="namethai">
               <Text fontWeight={'bold'}>D:</Text>
               <Text ml={1} className="detail">
                 02-558-9009 ({account.profile.phone_off})
               </Text>
             </Box>
-            <Box display={'flex'} className="nameall">
+            <Box display={'flex'} className="namethai">
               <Text fontWeight={'bold'}>M:</Text>
               <Text ml={1} className="detail">
                 {account.profile.phone}
               </Text>
             </Box>
-            <Box display={'flex'} className="nameall">
+            <Box display={'flex'} className="namethai">
               <Text fontWeight={'bold'}>E:</Text>
               <Text ml={1} className="detail">
                 {account.profile.email}
               </Text>
             </Box>
           </Box>
-          <Box w={'50%'} className="nameall">
+          <Box w={'55%'} className="namethai">
+            <Flex justifyContent={'end'}>
+              <Box position={'relative'} top={'-6px'} right={'-8px'}>
+                <img
+                  src="/red.png"
+                  alt="red"
+                  width={'16px'}
+                  // style={{ borderRadius: '10px' }}
+                />
+              </Box>
+              <Text fontWeight={'600'} className="namethai">
+                บริษัท เชฏฐ์ เอเชีย จำกัด (มหาชน)
+              </Text>
+            </Flex>
             <Box textAlign={'end'}>
-              <Text className="detail">34/6 Changwatana Road</Text>
+              <Text className="detail">34/6 ถนนแจ้งวัฒนะ ตำบลคลองเกลือ</Text>
             </Box>
             <Box textAlign={'end'}>
-              <Text className="detail">Klong kluea Paket</Text>
-            </Box>
-            <Box textAlign={'end'}>
-              <Text className="detail">Nontaburi 10130</Text>
+              <Text className="detail">อำเภอปากเกร็ด จังหวัดนนทบุรี 11120</Text>
             </Box>
           </Box>
         </Flex>
@@ -106,4 +103,4 @@ const FontCard = () => {
   );
 };
 
-export default FontCard;
+export default FontThaiCard;

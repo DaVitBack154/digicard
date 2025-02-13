@@ -7,12 +7,48 @@ import { FaEdit } from 'react-icons/fa';
 import { Modal, Form, Input } from 'antd';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { FaUnlock } from 'react-icons/fa';
+import swal from 'sweetalert2';
+import axios from 'axios';
 
 const Profile = () => {
+  const [form] = Form.useForm();
   const [profiledata, setProfiledata] = useState(false);
   const account = useSelector((state) => state.account);
+  const [selectedUserId, setSelectedUserId] = useState(null);
+
+  console.log(account.profile.Password, 'ppp');
+
   const UpdateprofileModal = () => {
+    setSelectedUserId(account.profile._id); // เก็บค่า id
     setProfiledata(true);
+  };
+
+  const onFinish = async (values) => {
+    try {
+      let result = await axios.put(
+        `${
+          import.meta.env.VITE_REACT_APP_API_USER
+        }/updateprofile/${selectedUserId}`,
+        values
+      );
+
+      if (result?.data?.status) {
+        swal
+          .fire({
+            title: 'Update Success',
+            text: result.data.message,
+            icon: 'success',
+          })
+          .then(() => window.location.reload());
+      }
+    } catch (error) {
+      swal.fire({
+        text: 'เกิดข้อผิดพลาดในการอัปเดต',
+        icon: 'error',
+      });
+      console.error(error);
+    }
   };
   return (
     <>
@@ -63,7 +99,7 @@ const Profile = () => {
               mr={2}
               border={'1px'}
               cursor={'pointer'}
-              onClick={UpdateprofileModal}
+              onClick={() => UpdateprofileModal(selectedUserId)}
             >
               <FaEdit size={16} />
             </Center>
@@ -141,51 +177,53 @@ const Profile = () => {
           <Box>
             <hr />
             <Box w={'100%'} mt={2}>
-              <Box>
-                <Box>เบอร์มือถือ</Box>
-                <Form.Item
-                  name={'name_contract'}
-                  rules={[
-                    {
-                      required: true,
-                      message: 'กรอกข้อมูลให้ครบ',
-                    },
-                  ]}
-                >
-                  <Input size="small" />
+              <Form
+                form={form}
+                onFinish={(values) => onFinish(values, selectedUserId)}
+                autoComplete="off"
+              >
+                <Box>
+                  <Box
+                    display={'flex'}
+                    justifyContent={'start'}
+                    alignItems={'center'}
+                    mb={2}
+                  >
+                    <Box
+                      background={'#dbf3f2'}
+                      color={'#086f69'}
+                      p={2}
+                      rounded={'5px'}
+                    >
+                      <FaUnlock />
+                    </Box>
+                    <Box ml={2}>สร้างรหัสผ่านสำหรับคุณ</Box>
+                  </Box>
+
+                  <Form.Item
+                    name={'password'}
+                    rules={[
+                      {
+                        required: true,
+                        message: 'กรอกข้อมูลให้ครบ',
+                      },
+                    ]}
+                  >
+                    <Input.Password placeholder="Password" />
+                  </Form.Item>
+                </Box>
+
+                <Form.Item>
+                  <Button
+                    w={'100%'}
+                    bg={'#395D5D'}
+                    color={'#FFFF'}
+                    type="submit"
+                  >
+                    Save
+                  </Button>
                 </Form.Item>
-              </Box>
-              <Box>
-                <Box>เบอร์ที่ OFFICE</Box>
-                <Form.Item
-                  name={'name_contract'}
-                  rules={[
-                    {
-                      required: true,
-                      message: 'กรอกข้อมูลให้ครบ',
-                    },
-                  ]}
-                >
-                  <Input size="small" />
-                </Form.Item>
-              </Box>
-              <Box>
-                <Box>รหัสผ่าน</Box>
-                <Form.Item
-                  name={'name_contract'}
-                  rules={[
-                    {
-                      required: true,
-                      message: 'กรอกข้อมูลให้ครบ',
-                    },
-                  ]}
-                >
-                  <Input size="small" />
-                </Form.Item>
-              </Box>
-              <Box>
-                <Button w={'100%'}>Save</Button>
-              </Box>
+              </Form>
             </Box>
           </Box>
         </>
