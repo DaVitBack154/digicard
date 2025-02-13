@@ -39,10 +39,15 @@ const Homepage = () => {
 
   return (
     <Box display="flex" flexDirection="column" minH="100vh" bg={'#f1f1fa'}>
-      <Box>
+      <Box position="fixed" top={0} width="100%">
         <Navbar />
       </Box>
-      <Box flex={1} p={2} mt={4}>
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <Box flex={1} p={3} mt={4}>
         {renderContent()}
       </Box>
       <Box position="fixed" bottom={0} width="100%">

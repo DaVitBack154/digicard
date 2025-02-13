@@ -57,9 +57,9 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/showcard/:token" element={<Showcard />} />
       <Route element={<PrivateRoute />}>
         <Route path="/homepage" element={<Homepage />} />
-        <Route path="/showcard/:token" element={<Showcard />} />
       </Route>
     </Routes>
   );
