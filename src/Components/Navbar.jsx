@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, Container } from '@chakra-ui/react';
 import { IoMdLogOut } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetState } from '../store/actionDispatch';
@@ -20,30 +20,31 @@ const Navbar = () => {
   };
 
   return (
-    <>
+    <Container maxW="full" display={{ base: 'block', lg: 'none' }} p={0}>
       <Box
         w={'100%'}
         bg={'#25605D'}
         color={'#FFF'}
-        h="80px"
+        h="90px"
         bgImage="/bglogin.png"
         bgSize="cover"
         bgPosition="center bottom"
         bgRepeat="no-repeat"
-        borderBottomLeftRadius="10px"
-        borderBottomRightRadius="10px"
+        borderBottomLeftRadius="20px"
+        borderBottomRightRadius="20px"
       >
         <Flex p={2}>
           <Box w={'70%'} mt={3} ml={2}>
             <Flex>
               <Box>
-                <img src="/cr.png" alt="C" width={'40px'} />
+                <img src="/cr.png" alt="C" width={'50px'} />
               </Box>
               <Box ml={2}>
-                <Text fontSize={'small'} fontWeight={'600'}>
+                <Text fontWeight={'600'}>
                   {account.profile.fname}
+                  {/* Waruen Wanwanich */}
                 </Text>
-                <Text fontSize={'12px'} fontWeight={'300'} color={'#d9e1fa'}>
+                <Text fontWeight={'300'} fontSize={'13px'} color={'#d9e1fa'}>
                   {account.profile.position}
                 </Text>
               </Box>
@@ -60,13 +61,13 @@ const Navbar = () => {
                 mr={3}
                 onClick={() => onSignOutPress()}
               >
-                <IoMdLogOut size={20} />
+                <IoMdLogOut size={25} />
               </Box>
             </Box>
           </Box>
         </Flex>
       </Box>
-    </>
+    </Container>
   );
 };
 

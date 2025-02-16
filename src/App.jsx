@@ -24,7 +24,7 @@ export default function App() {
   const { token } = useSelector(selectAuth);
   const dispatch = useDispatch();
   const location = useLocation();
-  const navigate = useNavigate(); // ✅ เพิ่ม useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkToken = async () => {
@@ -58,6 +58,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/showcard/:token" element={<Showcard />} />
+      {/* <Route path="/homepage" element={<Homepage />} /> */}
       <Route element={<PrivateRoute />}>
         <Route path="/homepage" element={<Homepage />} />
       </Route>

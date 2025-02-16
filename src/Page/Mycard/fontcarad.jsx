@@ -28,17 +28,12 @@ const FontCard = () => {
                 />
               </Box>
 
-              <Text
-                position={'relative'}
-                left={'-10px'}
-                fontSize={'smaller'}
-                fontWeight={'bold'}
-              >
+              <Text position={'relative'} left={'-10px'} fontWeight={'bold'}>
                 {account.profile.fname}
               </Text>
             </Flex>
 
-            <Text fontSize={'11px'} color={'#9b9b9b'} ml={3}>
+            <Text fontSize={'13px'} color={'#9b9b9b'} ml={3}>
               {account.profile.position}
             </Text>
           </Box>
@@ -54,7 +49,7 @@ const FontCard = () => {
         <br />
         <br />
         <br />
-        <Flex justifyContent={'end'} px={1} mt={2}>
+        <Flex justifyContent={'end'} px={1}>
           <Box position={'relative'} top={'-6px'} right={'-10px'}>
             <img
               src="/red.png"
@@ -63,7 +58,7 @@ const FontCard = () => {
               // style={{ borderRadius: '10px' }}
             />
           </Box>
-          <Text fontSize={'13px'} fontWeight={'600'}>
+          <Text fontSize={'14px'} fontWeight={'600'}>
             CHASE ASIA PCL
           </Text>
         </Flex>

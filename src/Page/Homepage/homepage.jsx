@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import Bottombar from '../../Components/Bottombar';
 import Navbar from '../../Components/Navbar';
 import { useState, useEffect } from 'react'; // Import useEffect
@@ -38,23 +38,28 @@ const Homepage = () => {
   };
 
   return (
-    <Box display="flex" flexDirection="column" minH="100vh" bg={'#f1f1fa'}>
-      <Box position="fixed" top={0} width="100%">
-        <Navbar />
-      </Box>
-      <br />
-      <br />
-      <br />
-      <br />
+    <Container maxW="full" display={{ base: 'block', lg: 'none' }} p={0}>
+      <Box display="flex" flexDirection="column" minH="100vh" bg={'#f1f1fa'}>
+        <Box position="fixed" top={0} width="100%">
+          <Navbar />
+        </Box>
+        <br />
+        <br />
+        <br />
+        <br />
 
-      <Box flex={1} p={3} mt={4}>
-        {renderContent()}
+        <Box flex={1} p={3} mt={4} overflowY="auto">
+          {renderContent()}
+        </Box>
+        <Box position="fixed" bottom={0} width="100%">
+          <Bottombar
+            onPageChange={handlePageChange}
+            currentPage={currentPage}
+          />
+          {/* Pass currentPage to Bottombar */}
+        </Box>
       </Box>
-      <Box position="fixed" bottom={0} width="100%">
-        <Bottombar onPageChange={handlePageChange} currentPage={currentPage} />
-        {/* Pass currentPage to Bottombar */}
-      </Box>
-    </Box>
+    </Container>
   );
 };
 

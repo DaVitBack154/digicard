@@ -1,24 +1,27 @@
-import { Box, Text, Button, Center, Flex } from '@chakra-ui/react';
+import { Container, Box, Text, Button, Center, Flex } from '@chakra-ui/react';
 import { Form, Input } from 'antd';
 import { MdEmail } from 'react-icons/md';
 import { FaLock } from 'react-icons/fa';
-import swal from 'sweetalert2';
+// import swal from 'sweetalert2';
 import axiosConfig from '../../utils/axiosConfig';
 import { setAccount } from '../../store/AccoutReducer';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Spinload from '../../Components/spinload';
 
 const Login = () => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const onFinish = async (values) => {
     try {
-      console.log('🟢 Sending login request:', values);
-
+      // console.log('🟢 Sending login request:', values);
+      setLoading(true);
       const resp = await axiosConfig.post('/login', values);
-      console.log('🟢 Login response:', resp.data);
+      // console.log('🟢 Login response:', resp.data);
 
       const { user, token, status } = resp.data;
 
@@ -30,37 +33,42 @@ const Login = () => {
         localStorage.setItem('profile', JSON.stringify(user));
 
         dispatch(setAccount({ token: token, profile: user }));
-
-        swal.fire({
-          title: 'Success',
-          text: 'Login Successful!',
-          icon: 'success',
-          timer: 1500,
-          showConfirmButton: false,
-        });
+        // setLoading(true);
+        // swal.fire({
+        //   title: 'Success',
+        //   text: 'Login Successful!',
+        //   icon: 'success',
+        //   timer: 1500,
+        //   showConfirmButton: false,
+        // });
 
         // ✅ เปลี่ยนหน้าไป /homepage
-        navigate('/homepage');
+        setTimeout(() => {
+          navigate('/homepage');
+        }, 2000);
+        // navigate('/homepage');
       } catch (decryptError) {
         throw new Error('Token decryption failed: ' + decryptError.message);
       }
     } catch (error) {
       console.error('🔴 Error logging in:', error);
-
-      swal.fire({
-        title: 'Error',
-        text: error.message || 'Something went wrong. Please try again.',
-        icon: 'error',
-        confirmButtonText: 'OK',
-      });
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+      // swal.fire({
+      //   title: 'Error',
+      //   text: error.message || 'Something went wrong. Please try again.',
+      //   icon: 'error',
+      //   confirmButtonText: 'OK',
+      // });
     }
   };
 
   return (
     <>
-      <Box>
+      {loading && <Spinload />}
+      <Container maxW="full" display={{ base: 'block', lg: 'none' }} p={0}>
         <Box
-          w="100%"
           h="160px"
           bgImage="/bglogin.png"
           bgSize="cover"
@@ -69,6 +77,7 @@ const Login = () => {
           borderBottomLeftRadius="10px"
           borderBottomRightRadius="10px"
           color={'#FFF'}
+          w={'100%'}
         >
           <Flex
             flexDirection={'column'}
@@ -100,7 +109,7 @@ const Login = () => {
           <img src="/logo.png" alt="C" width={'150px'} />
         </Center>
 
-        <Box p={3} mt={2}>
+        <Box px={6} mt={5}>
           <Form form={form} onFinish={onFinish} autoComplete="off">
             <Form.Item
               name={'email'}
@@ -116,6 +125,7 @@ const Login = () => {
                   padding: '10px',
                   borderRadius: '20px',
                   background: '#F0F0F0',
+                  fontSize: '16px',
                 }}
                 prefix={
                   <MdEmail
@@ -144,6 +154,7 @@ const Login = () => {
                   padding: '10px',
                   borderRadius: '20px',
                   background: '#F0F0F0',
+                  fontSize: '16px',
                 }}
                 prefix={
                   <FaLock
@@ -170,6 +181,8 @@ const Login = () => {
                   bg={'#395D5D'}
                   color={'#FFFF'}
                   rounded={'20px'}
+                  p={0}
+                  mt={5}
                 >
                   LOGIN
                 </Button>
@@ -177,7 +190,7 @@ const Login = () => {
             </Box>
           </Form>
         </Box>
-      </Box>
+      </Container>
     </>
   );
 };

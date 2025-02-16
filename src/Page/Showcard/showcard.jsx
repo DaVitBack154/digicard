@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Text } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { Switch } from 'antd';
 import { useEffect, useState } from 'react';
@@ -9,7 +9,7 @@ const Showcard = () => {
   const { token } = useParams();
   const [checked, setChecked] = useState(false);
   const [Profile, setProfile] = useState(null);
-  // console.log(token);
+  console.log(token);
 
   useEffect(() => {
     // console.log('useEffect ถูกเรียก', token);
@@ -53,6 +53,7 @@ const Showcard = () => {
               display={'flex'}
               justifyContent={'start'}
               alignItems={'center'}
+              ml={2}
             >
               <Switch
                 checked={checked}
@@ -75,222 +76,231 @@ const Showcard = () => {
                 </Box>
               </Box>
             </Box>
-            <hr />
 
-            {checked ? (
-              <>
-                {/* หน้า card ภาษาไทย */}
-                <Box
-                  bg={'#FFF'}
-                  p={1}
-                  rounded={'8px'}
-                  boxShadow={'rgba(0, 0, 0, 0.16) 0px 1px 4px;'}
-                >
-                  <Flex
-                    w={'100%'}
-                    justifyContent={'space-between'}
-                    alignItems={'center'}
-                    mt={2}
-                  >
-                    <Box>
-                      <Flex>
-                        <Box position={'relative'} top={'-8px'}>
+            <Container maxW={'400px'} padding={2} id="capture">
+              <Box>
+                {checked ? (
+                  <>
+                    {/* หน้า card ภาษาไทย */}
+                    <Box
+                      bg={'#FFF'}
+                      p={1}
+                      rounded={'8px'}
+                      boxShadow={'rgba(0, 0, 0, 0.16) 0px 1px 4px;'}
+                    >
+                      <Flex
+                        w={'100%'}
+                        justifyContent={'space-between'}
+                        alignItems={'center'}
+                        mt={2}
+                      >
+                        <Box>
+                          <Flex>
+                            <Box position={'relative'} top={'-8px'}>
+                              <img
+                                src="/red.png"
+                                alt="red"
+                                width={'20px'}
+                                // style={{ borderRadius: '10px' }}
+                              />
+                            </Box>
+
+                            <Text
+                              position={'relative'}
+                              left={'-10px'}
+                              fontSize={'smaller'}
+                              fontWeight={'bold'}
+                            >
+                              {Profile?.tname || 'Loading...'}
+                            </Text>
+                          </Flex>
+
+                          <Text fontSize={'11px'} color={'#9b9b9b'} ml={3}>
+                            {Profile?.position || 'Loading...'}
+                          </Text>
+                        </Box>
+                        <Box>
                           <img
-                            src="/red.png"
-                            alt="red"
-                            width={'20px'}
+                            src="/logo.png"
+                            alt="logo"
+                            width={'90px'}
                             // style={{ borderRadius: '10px' }}
                           />
                         </Box>
-
-                        <Text
-                          position={'relative'}
-                          left={'-10px'}
-                          fontSize={'smaller'}
-                          fontWeight={'bold'}
-                        >
-                          {Profile?.tname || 'Loading...'}
-                        </Text>
                       </Flex>
+                      <br />
+                      <br />
+                      <br />
 
-                      <Text fontSize={'11px'} color={'#9b9b9b'} ml={3}>
-                        {Profile?.position || 'Loading...'}
-                      </Text>
+                      <Flex w={'100%'} alignItems={'center'} mb={2} px={1}>
+                        <Box w={'45%'}>
+                          <Box display={'flex'} className="namethai">
+                            <Text fontWeight={'bold'}>D:</Text>
+                            <Text ml={1} className="detail">
+                              02-558-9009 ({Profile?.phone_off || 'Loading...'})
+                            </Text>
+                          </Box>
+                          <Box display={'flex'} className="namethai">
+                            <Text fontWeight={'bold'}>M:</Text>
+                            <Text ml={1} className="detail">
+                              {Profile?.phone || 'Loading...'}
+                            </Text>
+                          </Box>
+                          <Box display={'flex'} className="namethai">
+                            <Text fontWeight={'bold'}>E:</Text>
+                            <Text ml={1} className="detail">
+                              {Profile?.email || 'Loading...'}
+                            </Text>
+                          </Box>
+                        </Box>
+                        <Box w={'55%'} className="namethai">
+                          <Flex justifyContent={'end'}>
+                            <Box
+                              position={'relative'}
+                              top={'-6px'}
+                              right={'-8px'}
+                            >
+                              <img
+                                src="/red.png"
+                                alt="red"
+                                width={'16px'}
+                                // style={{ borderRadius: '10px' }}
+                              />
+                            </Box>
+                            <Text fontWeight={'600'} className="namethai">
+                              บริษัท เชฏฐ์ เอเชีย จำกัด (มหาชน)
+                            </Text>
+                          </Flex>
+                          <Box textAlign={'end'}>
+                            <Text className="detail">
+                              34/6 ถนนแจ้งวัฒนะ ตำบลคลองเกลือ
+                            </Text>
+                          </Box>
+                          <Box textAlign={'end'}>
+                            <Text className="detail">
+                              อำเภอปากเกร็ด จังหวัดนนทบุรี 11120
+                            </Text>
+                          </Box>
+                        </Box>
+                      </Flex>
                     </Box>
-                    <Box>
-                      <img
-                        src="/logo.png"
-                        alt="logo"
-                        width={'90px'}
-                        // style={{ borderRadius: '10px' }}
-                      />
-                    </Box>
-                  </Flex>
-                  <br />
-                  <br />
-                  <br />
+                    {/* หน้า card ภาษาไทย */}
+                  </>
+                ) : (
+                  <>
+                    {/* หน้า card ภาษาอังกฤษ */}
+                    <Box
+                      bg={'#FFF'}
+                      p={1}
+                      rounded={'8px'}
+                      boxShadow={'rgba(0, 0, 0, 0.16) 0px 1px 4px;'}
+                    >
+                      <Flex
+                        w={'100%'}
+                        justifyContent={'space-between'}
+                        alignItems={'center'}
+                        mt={2}
+                      >
+                        <Box>
+                          <Flex>
+                            <Box position={'relative'} top={'-8px'}>
+                              <img
+                                src="/red.png"
+                                alt="red"
+                                width={'20px'}
+                                // style={{ borderRadius: '10px' }}
+                              />
+                            </Box>
 
-                  <Flex w={'100%'} alignItems={'center'} mb={2} px={1}>
-                    <Box w={'45%'}>
-                      <Box display={'flex'} className="namethai">
-                        <Text fontWeight={'bold'}>D:</Text>
-                        <Text ml={1} className="detail">
-                          02-558-9009 ({Profile?.phone_off || 'Loading...'})
-                        </Text>
-                      </Box>
-                      <Box display={'flex'} className="namethai">
-                        <Text fontWeight={'bold'}>M:</Text>
-                        <Text ml={1} className="detail">
-                          {Profile?.phone || 'Loading...'}
-                        </Text>
-                      </Box>
-                      <Box display={'flex'} className="namethai">
-                        <Text fontWeight={'bold'}>E:</Text>
-                        <Text ml={1} className="detail">
-                          {Profile?.email || 'Loading...'}
-                        </Text>
-                      </Box>
-                    </Box>
-                    <Box w={'55%'} className="namethai">
-                      <Flex justifyContent={'end'}>
-                        <Box position={'relative'} top={'-6px'} right={'-8px'}>
+                            <Text
+                              position={'relative'}
+                              left={'-10px'}
+                              fontSize={'smaller'}
+                              fontWeight={'bold'}
+                            >
+                              {Profile?.fname || 'Loading...'}
+                            </Text>
+                          </Flex>
+
+                          <Text fontSize={'11px'} color={'#9b9b9b'} ml={3}>
+                            {Profile?.position || 'Loading...'}
+                          </Text>
+                        </Box>
+                        <Box>
                           <img
-                            src="/red.png"
-                            alt="red"
-                            width={'16px'}
+                            src="/logo.png"
+                            alt="logo"
+                            width={'90px'}
                             // style={{ borderRadius: '10px' }}
                           />
                         </Box>
-                        <Text fontWeight={'600'} className="namethai">
-                          บริษัท เชฏฐ์ เอเชีย จำกัด (มหาชน)
+                      </Flex>
+                      <br />
+                      <br />
+                      <br />
+                      <Flex justifyContent={'end'} px={1} mt={2}>
+                        <Box position={'relative'} top={'-6px'} right={'-10px'}>
+                          <img
+                            src="/red.png"
+                            alt="red"
+                            width={'18px'}
+                            // style={{ borderRadius: '10px' }}
+                          />
+                        </Box>
+                        <Text fontSize={'13px'} fontWeight={'600'}>
+                          CHASE ASIA PCL
                         </Text>
                       </Flex>
-                      <Box textAlign={'end'}>
-                        <Text className="detail">
-                          34/6 ถนนแจ้งวัฒนะ ตำบลคลองเกลือ
-                        </Text>
-                      </Box>
-                      <Box textAlign={'end'}>
-                        <Text className="detail">
-                          อำเภอปากเกร็ด จังหวัดนนทบุรี 11120
-                        </Text>
-                      </Box>
+                      <Flex w={'100%'} alignItems={'center'} mb={2} px={1}>
+                        <Box w={'50%'}>
+                          <Box display={'flex'} className="nameall">
+                            <Text fontWeight={'bold'}>D:</Text>
+                            <Text ml={1} className="detail">
+                              02-558-9009 ({Profile?.phone_off || 'Loading...'})
+                            </Text>
+                          </Box>
+                          <Box display={'flex'} className="nameall">
+                            <Text fontWeight={'bold'}>M:</Text>
+                            <Text ml={1} className="detail">
+                              {Profile?.phone || 'Loading...'}
+                            </Text>
+                          </Box>
+                          <Box display={'flex'} className="nameall">
+                            <Text fontWeight={'bold'}>E:</Text>
+                            <Text ml={1} className="detail">
+                              {Profile?.email || 'Loading...'}
+                            </Text>
+                          </Box>
+                        </Box>
+                        <Box w={'50%'} className="nameall">
+                          <Box textAlign={'end'}>
+                            <Text className="detail">
+                              34/6 Changwatana Road
+                            </Text>
+                          </Box>
+                          <Box textAlign={'end'}>
+                            <Text className="detail">Klong kluea Paket</Text>
+                          </Box>
+                          <Box textAlign={'end'}>
+                            <Text className="detail">Nontaburi 10130</Text>
+                          </Box>
+                        </Box>
+                      </Flex>
                     </Box>
-                  </Flex>
+                    {/* หน้า card ภาษาอังกฤษ */}
+                  </>
+                )}
+
+                <br />
+                <Box w={'100%'}>
+                  <img
+                    src="/back_card.png"
+                    alt="back_chase"
+                    style={{ borderRadius: '8px' }}
+                  />
                 </Box>
-                {/* หน้า card ภาษาไทย */}
-              </>
-            ) : (
-              <>
-                {/* หน้า card ภาษาอังกฤษ */}
-                <Box
-                  bg={'#FFF'}
-                  p={1}
-                  rounded={'8px'}
-                  boxShadow={'rgba(0, 0, 0, 0.16) 0px 1px 4px;'}
-                >
-                  <Flex
-                    w={'100%'}
-                    justifyContent={'space-between'}
-                    alignItems={'center'}
-                    mt={2}
-                  >
-                    <Box>
-                      <Flex>
-                        <Box position={'relative'} top={'-8px'}>
-                          <img
-                            src="/red.png"
-                            alt="red"
-                            width={'20px'}
-                            // style={{ borderRadius: '10px' }}
-                          />
-                        </Box>
-
-                        <Text
-                          position={'relative'}
-                          left={'-10px'}
-                          fontSize={'smaller'}
-                          fontWeight={'bold'}
-                        >
-                          {Profile?.fname || 'Loading...'}
-                        </Text>
-                      </Flex>
-
-                      <Text fontSize={'11px'} color={'#9b9b9b'} ml={3}>
-                        {Profile?.position || 'Loading...'}
-                      </Text>
-                    </Box>
-                    <Box>
-                      <img
-                        src="/logo.png"
-                        alt="logo"
-                        width={'90px'}
-                        // style={{ borderRadius: '10px' }}
-                      />
-                    </Box>
-                  </Flex>
-                  <br />
-                  <br />
-                  <Flex justifyContent={'end'} px={1} mt={2}>
-                    <Box position={'relative'} top={'-6px'} right={'-10px'}>
-                      <img
-                        src="/red.png"
-                        alt="red"
-                        width={'18px'}
-                        // style={{ borderRadius: '10px' }}
-                      />
-                    </Box>
-                    <Text fontSize={'13px'} fontWeight={'600'}>
-                      CHASE ASIA PCL
-                    </Text>
-                  </Flex>
-
-                  <Flex w={'100%'} alignItems={'center'} mb={2} px={1}>
-                    <Box w={'50%'}>
-                      <Box display={'flex'} className="nameall">
-                        <Text fontWeight={'bold'}>D:</Text>
-                        <Text ml={1} className="detail">
-                          02-558-9009 ({Profile?.phone_off || 'Loading...'})
-                        </Text>
-                      </Box>
-                      <Box display={'flex'} className="nameall">
-                        <Text fontWeight={'bold'}>M:</Text>
-                        <Text ml={1} className="detail">
-                          {Profile?.phone || 'Loading...'}
-                        </Text>
-                      </Box>
-                      <Box display={'flex'} className="nameall">
-                        <Text fontWeight={'bold'}>E:</Text>
-                        <Text ml={1} className="detail">
-                          {Profile?.email || 'Loading...'}
-                        </Text>
-                      </Box>
-                    </Box>
-                    <Box w={'50%'} className="nameall">
-                      <Box textAlign={'end'}>
-                        <Text className="detail">34/6 Changwatana Road</Text>
-                      </Box>
-                      <Box textAlign={'end'}>
-                        <Text className="detail">Klong kluea Paket</Text>
-                      </Box>
-                      <Box textAlign={'end'}>
-                        <Text className="detail">Nontaburi 10130</Text>
-                      </Box>
-                    </Box>
-                  </Flex>
-                </Box>
-                {/* หน้า card ภาษาอังกฤษ */}
-              </>
-            )}
-
-            <br />
-            <Box w={'100%'}>
-              <img
-                src="/back_card.png"
-                alt="back_chase"
-                style={{ borderRadius: '8px' }}
-              />
-            </Box>
+              </Box>
+            </Container>
           </Box>
         </>
       )}

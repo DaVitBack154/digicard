@@ -11,7 +11,7 @@ const Bottombar = ({ onPageChange, currentPage }) => {
       w={'100%'}
       bg={'#25605D'}
       color={'#FFF'}
-      h="80px"
+      h="70px"
       bgImage="/bglogin.png"
       bgSize="cover"
       bgPosition="center bottom"
@@ -31,15 +31,15 @@ const Bottombar = ({ onPageChange, currentPage }) => {
           onClick={() => onPageChange('mycard')}
           style={{
             // เพิ่ม style เพื่อ highlight tab ปัจจุบัน
-            color: currentPage === 'mycard' ? '#FFFF' : '#c4c4c4',
+            color: currentPage === 'mycard' ? '#FFFF' : '#afafaf',
             borderBottom: currentPage === 'mycard' ? '2px solid red' : 'none',
             paddingBottom: '2px',
           }}
         >
           <Box>
-            <FaCreditCard size={22} />
+            <FaCreditCard size={25} />
           </Box>
-          <Box fontSize={'smaller'}>MyCard</Box>
+          <Box fontSize={'small'}>MyCard</Box>
         </Box>
         <Box
           display={'flex'}
@@ -48,15 +48,15 @@ const Bottombar = ({ onPageChange, currentPage }) => {
           alignItems={'center'}
           onClick={() => onPageChange('bookcard')}
           style={{
-            color: currentPage === 'bookcard' ? '#FFFF' : '#c4c4c4',
+            color: currentPage === 'bookcard' ? '#FFFF' : '#afafaf',
             borderBottom: currentPage === 'bookcard' ? '2px solid red' : 'none',
             paddingBottom: '2px',
           }}
         >
           <Box>
-            <ImDownload size={22} />
+            <ImDownload size={25} />
           </Box>
-          <Box fontSize={'smaller'}>BookCard</Box>
+          <Box fontSize={'small'}>Taxid</Box>
         </Box>
         <Box
           display={'flex'}
@@ -65,15 +65,15 @@ const Bottombar = ({ onPageChange, currentPage }) => {
           alignItems={'center'}
           onClick={() => onPageChange('profile')}
           style={{
-            color: currentPage === 'profile' ? '#FFFF' : '#c4c4c4',
+            color: currentPage === 'profile' ? '#FFFF' : '#afafaf',
             borderBottom: currentPage === 'profile' ? '2px solid red' : 'none',
             paddingBottom: '2px',
           }}
         >
           <Box>
-            <FaUserEdit size={22} />
+            <FaUserEdit size={25} />
           </Box>
-          <Box fontSize={'smaller'}>Profile</Box>
+          <Box fontSize={'small'}>Profile</Box>
         </Box>
       </Box>
     </Box>

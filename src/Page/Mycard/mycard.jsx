@@ -6,7 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 import { GoArrowSwitch } from 'react-icons/go';
 import { IoQrCode } from 'react-icons/io5';
 import axiosInstance from '../../utils/axiosConfig';
-// import { RiDeleteBin6Fill } from 'react-icons/ri';
+import { motion } from 'framer-motion';
 import FontCard from './fontcarad';
 import QrTab from './qrtab';
 // import Swal from 'sweetalert2';
@@ -26,9 +26,9 @@ const Mycard = () => {
     setshowCard(true);
   };
 
-  const toggleFlip = () => {
-    setflipCard(!flipCard);
-  };
+  // const toggleFlip = () => {
+  //   setflipCard(!flipCard);
+  // };
 
   const showQrCode = async () => {
     try {
@@ -71,23 +71,52 @@ const Mycard = () => {
           rounded={'5px'}
           border={'1px'}
         >
-          <FaCreditCard size={20} />
+          <FaCreditCard size={25} />
         </Box>
-        <Text ml={2}>รายการนามบัตรของคุณ</Text>
-        {/* <Center
-          p={1}
-          bg={'#25605d'}
-          color={'#FFFF'}
-          rounded={'10px'}
-          cursor={'pointer'}
-          onClick={addCardModal}
-        >
-          <IoMdAddCircle size={24} />
-        </Center> */}
+        <Text ml={2} fontWeight={'500'}>
+          รายการนามบัตรของคุณ
+        </Text>
       </Flex>
 
       {/* ในส่วนฟังชั่น บัตร */}
       <Box mt={3}>
+        <motion.div
+          className="card"
+          style={{
+            // position: 'relative',
+            transformStyle: 'preserve-3d',
+          }}
+          animate={{ rotateY: flipCard ? 180 : 0 }}
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+        >
+          {!flipCard ? (
+            <Box
+              w={'100%'}
+              // style={{
+              //   backfaceVisibility: 'hidden',
+              // }}
+            >
+              <img
+                src="/back_card.png"
+                alt="back_chase"
+                style={{ borderRadius: '8px' }}
+              />
+            </Box>
+          ) : (
+            <Box
+              w={'100%'}
+              style={{
+                transform: 'rotateY(180deg)',
+                backfaceVisibility: 'hidden',
+              }}
+            >
+              <FontCard />
+            </Box>
+          )}
+        </motion.div>
+      </Box>
+
+      {/* 
         {flipCard ? (
           <Box w={'100%'}>
             <FontCard />
@@ -100,8 +129,7 @@ const Mycard = () => {
               style={{ borderRadius: '8px' }}
             />
           </Box>
-        )}
-      </Box>
+        )} */}
 
       <Box bg={'#FFF'} w={'100%'} mt={3} rounded={'6px'}>
         <Flex
@@ -120,7 +148,7 @@ const Mycard = () => {
               <FaSearch size={18} />
             </Box>
           </Box>
-          <Box cursor={'pointer'} onClick={toggleFlip}>
+          <Box cursor={'pointer'} onClick={() => setflipCard(!flipCard)}>
             <Box
               p={2}
               background={'#dbf3f2'}
@@ -191,7 +219,7 @@ const Mycard = () => {
             <Box w={'100%'} mt={5}>
               <FontCard />
             </Box>
-            <Box w={'100%'} mt={5}>
+            <Box w={'100%'} mt={3}>
               <Box w={'100%'}>
                 <img
                   src="/back_card.png"
