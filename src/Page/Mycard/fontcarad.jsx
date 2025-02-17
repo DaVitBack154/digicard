@@ -28,12 +28,23 @@ const FontCard = () => {
                 />
               </Box>
 
-              <Text position={'relative'} left={'-10px'} fontWeight={'bold'}>
+              <Text
+                position={'relative'}
+                left={'-10px'}
+                fontWeight={'bold'}
+                color={'#175252'}
+                fontFamily={'Montserrat'}
+              >
                 {account.profile.fname}
               </Text>
             </Flex>
 
-            <Text fontSize={'13px'} color={'#9b9b9b'} ml={3}>
+            <Text
+              fontSize={'13px'}
+              color={'#9b9b9b'}
+              ml={3}
+              fontFamily={'Montserrat'}
+            >
               {account.profile.position}
             </Text>
           </Box>
@@ -58,41 +69,53 @@ const FontCard = () => {
               // style={{ borderRadius: '10px' }}
             />
           </Box>
-          <Text fontSize={'14px'} fontWeight={'600'}>
+          <Text fontSize={'14px'} fontWeight={'600'} fontFamily={'Montserrat'}>
             CHASE ASIA PCL
           </Text>
         </Flex>
 
         <Flex w={'100%'} alignItems={'center'} mb={2} px={1}>
-          <Box w={'50%'}>
+          <Box w={'50%'} fontFamily={'Montserrat'}>
             <Box display={'flex'} className="nameall">
-              <Text fontWeight={'bold'}>D:</Text>
-              <Text ml={1} className="detail">
-                02-558-9009 ({account.profile.phone_off})
+              <Text fontWeight={'bold'} fontFamily={'Montserrat'}>
+                D:
+              </Text>
+              <Text ml={1} className="detail" fontFamily={'Montserrat'}>
+                0 28555 8222 ({account.profile.phone_off})
               </Text>
             </Box>
             <Box display={'flex'} className="nameall">
-              <Text fontWeight={'bold'}>M:</Text>
-              <Text ml={1} className="detail">
+              <Text fontWeight={'bold'} fontFamily={'Montserrat'}>
+                M:
+              </Text>
+              <Text ml={1} className="detail" fontFamily={'Montserrat'}>
                 {account.profile.phone}
               </Text>
             </Box>
             <Box display={'flex'} className="nameall">
-              <Text fontWeight={'bold'}>E:</Text>
-              <Text ml={1} className="detail">
+              <Text fontWeight={'bold'} fontFamily={'Montserrat'}>
+                E:
+              </Text>
+              <Text ml={1} className="detail" fontFamily={'Montserrat'}>
                 {account.profile.email}
               </Text>
             </Box>
           </Box>
-          <Box w={'50%'} className="nameall">
+          <Box w={'50%'} className="nameall" fontFamily={'Montserrat'}>
             <Box textAlign={'end'}>
-              <Text className="detail">34/6 Changwatana Road</Text>
+              <Text className="detail" fontFamily={'Montserrat'}>
+                34/6 Changwatana Road
+              </Text>
             </Box>
             <Box textAlign={'end'}>
-              <Text className="detail">Klong kluea Paket</Text>
+              <Text className="detail" fontFamily={'Montserrat'}>
+                Klong kluea Paket
+              </Text>
             </Box>
             <Box textAlign={'end'}>
-              <Text className="detail">Nontaburi 10130</Text>
+              <Text className="detail" fontFamily={'Montserrat'}>
+                Nontaburi 11120
+              </Text>
             </Box>
           </Box>
         </Flex>

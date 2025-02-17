@@ -23,7 +23,7 @@ const Bookcard = () => {
               // alignItems={'center'}
             >
               <Box>
-                <Text>CHASE ASIA PCL</Text>
+                <Text fontWeight={'bold'}>CHASE ASIA PCL</Text>
                 <Text>บริษัท เชฎฐ์ เอเชีย จำกัด (มหาชน)</Text>
               </Box>
               <Box position={'relative'} right={'-10px'}>
@@ -55,7 +55,7 @@ const Bookcard = () => {
               alignItems={'center'}
             >
               <Text color={'gray.400'}>Phone : </Text>
-              <Text ml={2}>02 821 1055</Text>
+              <Text ml={2}>02 855 8222</Text>
             </Box>
           </Box>
         </Box>
@@ -80,7 +80,7 @@ const Bookcard = () => {
               // alignItems={'center'}
             >
               <Box>
-                <Text>RESOLUTION WAY CO.,LTD.</Text>
+                <Text fontWeight={'bold'}>RESOLUTION WAY CO.,LTD.</Text>
                 <Text>บริษัท รีโซลูชั่น เวย์ จำกัด</Text>
               </Box>
               <Box>
@@ -137,7 +137,9 @@ const Bookcard = () => {
               // alignItems={'center'}
             >
               <Box>
-                <Text fontSize={'11px'}>CF ASIA ASSET MANAGEMENT CO.,LTD.</Text>
+                <Text fontSize={'12px'} fontWeight={'bold'}>
+                  CF ASIA ASSET MANAGEMENT CO.,LTD.
+                </Text>
                 <Text fontSize={'12px'}>
                   บริษัท บริหารสินทรัพย์ ซีเอฟ เอเชีย จำกัด
                 </Text>

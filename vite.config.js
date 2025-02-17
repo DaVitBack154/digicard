@@ -10,6 +10,9 @@ export default defineConfig({
     // ],
     port: 3120,
   },
+  preview: {
+    port: 3120, // ใช้พอร์ตนี้ตอน preview หลังจาก build
+  },
   plugins: [
     react(),
     VitePWA({
