@@ -2,7 +2,7 @@ import { Container, Box, Text, Button, Center, Flex } from '@chakra-ui/react';
 import { Form, Input } from 'antd';
 import { MdEmail } from 'react-icons/md';
 import { FaLock } from 'react-icons/fa';
-// import swal from 'sweetalert2';
+import swal from 'sweetalert2';
 import axiosConfig from '../../utils/axiosConfig';
 import { setAccount } from '../../store/AccoutReducer';
 import { useDispatch } from 'react-redux';
@@ -31,7 +31,6 @@ const Login = () => {
       try {
         localStorage.setItem('token', token);
         localStorage.setItem('profile', JSON.stringify(user));
-
         dispatch(setAccount({ token: token, profile: user }));
         // setLoading(true);
         // swal.fire({
@@ -52,15 +51,14 @@ const Login = () => {
       }
     } catch (error) {
       console.error('🔴 Error logging in:', error);
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000);
-      // swal.fire({
-      //   title: 'Error',
-      //   text: error.message || 'Something went wrong. Please try again.',
-      //   icon: 'error',
-      //   confirmButtonText: 'OK',
-      // });
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setLoading(false);
+      await swal.fire({
+        title: 'Error',
+        text: error.message || 'Something went wrong. Please try again.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     }
   };
 
@@ -97,9 +95,9 @@ const Login = () => {
               </Text>
             </Box>
             <Flex justifyContent={'centers'} alignItems={'center'} mt={3}>
-              <Box>
-                <img src="/cr.png" alt="C" width={'35px'} />
-              </Box>
+              <Center bg={'#FFF'} rounded={'24px'} p={2}>
+                <img src="/ctr.png" alt="C" width={'20px'} />
+              </Center>
               <Box ml={2}>Digital Card</Box>
             </Flex>
           </Flex>

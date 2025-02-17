@@ -13,7 +13,7 @@ if (storedToken) {
   try {
     const bytes = CryptoJS.AES.decrypt(
       storedToken,
-      import.meta.env.VITE_SECRET_KEY
+      import.meta.env.VITE_REACT_APP_API_KEY
     );
     const decryptedToken = bytes.toString(CryptoJS.enc.Utf8);
     if (decryptedToken) {
@@ -40,7 +40,7 @@ const slice = createSlice({
       // ✅ เข้ารหัส Token ก่อนเก็บ
       const encryptedToken = CryptoJS.AES.encrypt(
         token,
-        import.meta.env.VITE_SECRET_KEY
+        import.meta.env.VITE_REACT_APP_API_KEY
       ).toString();
 
       state.token = token;

@@ -69,17 +69,17 @@ const Profile = () => {
             mb={3}
             w={'100%'}
           >
-            <Box w={'20%'} mt={2}>
+            <Box w={'20%'}>
               <Box p={1}>
                 <img src="/cr.png" alt="C" width={'60px'} />
               </Box>
             </Box>
-            <Box w={'65%'} mt={4}>
+            <Box w={'65%'} mt={4} textAlign={'start'}>
               <Box fontWeight={'600'}>
                 {account.profile.fname}
                 {/* Waruen Wanwanich */}
               </Box>
-              <Box color={'gray.500'}>
+              <Box fontSize={'13px'} color={'gray.500'}>
                 {account.profile.position}
                 {/* Programmer */}
               </Box>
@@ -87,7 +87,7 @@ const Profile = () => {
                 <Box color={'#6FB0FB'} bg={'#E8F2FE'} p={1} rounded={'5px'}>
                   <MdEmail size={16} />
                 </Box>
-                <Box ml={1} color={'gray.500'}>
+                <Box ml={1} fontSize={'14px'} color={'gray.500'}>
                   {account.profile.email}
                   {/* waruen.css@gmail.com */}
                 </Box>
@@ -106,11 +106,11 @@ const Profile = () => {
                 color={'#F5BC00'}
                 rounded={'5px'}
                 border={'1px'}
-                p={2}
+                p={1}
                 cursor={'pointer'}
                 onClick={() => UpdateprofileModal(selectedUserId)}
               >
-                <FaEdit size={18} />
+                <FaEdit size={20} />
               </Box>
             </Box>
           </Box>
@@ -183,7 +183,7 @@ const Profile = () => {
               <Box ml={5}>
                 <Text fontWeight={'600'}>Office-Phone</Text>
                 <Text color={'gray.500'} fontWeight={'300'}>
-                  0-2855-8222 (Ex {account.profile.phone_off})
+                  0 2855 8222 (Ex {account.profile.phone_off})
                   {/* 0-2855-8222 */}
                 </Text>
               </Box>

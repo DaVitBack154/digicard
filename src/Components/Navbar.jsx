@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Container } from '@chakra-ui/react';
+import { Box, Flex, Text, Container, Center } from '@chakra-ui/react';
 import { IoMdLogOut } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetState } from '../store/actionDispatch';
@@ -36,9 +36,9 @@ const Navbar = () => {
         <Flex p={2}>
           <Box w={'70%'} mt={3} ml={2}>
             <Flex>
-              <Box>
-                <img src="/cr.png" alt="C" width={'50px'} />
-              </Box>
+              <Center bg={'#FFF'} rounded={'24px'} p={2}>
+                <img src="/ctr.png" alt="C" width={'24px'} />
+              </Center>
               <Box ml={2}>
                 <Text fontWeight={'600'}>
                   {account.profile.fname}

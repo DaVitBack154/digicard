@@ -9,7 +9,7 @@ import { useState } from 'react';
 // eslint-disable-next-line react/prop-types
 const QrTab = ({ tokenQrCode }) => {
   const [selectedKeys, setSelectedKeys] = useState('1');
-  // console.log('tokenQrCode', tokenQrCode);
+  console.log('tokenQrCode', tokenQrCode);
   const onChange = (key) => {
     setSelectedKeys(key);
     // console.log(key);

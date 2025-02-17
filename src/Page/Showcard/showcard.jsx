@@ -4,12 +4,30 @@ import { Switch } from 'antd';
 import { useEffect, useState } from 'react';
 import { IoMdDownload } from 'react-icons/io';
 import axios from 'axios';
+import html2canvas from 'html2canvas';
 
 const Showcard = () => {
   const { token } = useParams();
   const [checked, setChecked] = useState(false);
   const [Profile, setProfile] = useState(null);
   console.log(token);
+
+  const handleDownload = async () => {
+    const element = document.getElementById('capture'); // ดึง element ที่มี id="capture"
+    if (!element) return;
+
+    const canvas = await html2canvas(element, {
+      backgroundColor: '#f0f0f0', // เปลี่ยนสีพื้นหลังเป็นสีเทาอ่อน หรือสีที่ต้องการ
+    });
+    const dataURL = canvas.toDataURL('image/png'); // แปลงเป็นรูปภาพ PNG
+
+    const link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'profile-card.png'; // ตั้งชื่อไฟล์
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   useEffect(() => {
     // console.log('useEffect ถูกเรียก', token);
@@ -42,14 +60,13 @@ const Showcard = () => {
     <>
       {Profile == null || undefined ? (
         <>
-          <br />
           <Box>กรุณาขอ Qr-Code ใหม่</Box>
         </>
       ) : (
         <>
-          <Box px={3}>
+          <Box px={3} bg={'gray.100'} h={'100vh'}>
+            <br />
             <Box
-              my={5}
               display={'flex'}
               justifyContent={'start'}
               alignItems={'center'}
@@ -65,7 +82,7 @@ const Showcard = () => {
                   borderColor: checked ? '#25605D' : '#25605D',
                 }}
               />
-              <Box ml={2}>
+              <Box ml={2} onClick={handleDownload} cursor="pointer">
                 <Box
                   p={2}
                   background={'#dbf3f2'}
@@ -77,7 +94,7 @@ const Showcard = () => {
               </Box>
             </Box>
 
-            <Container maxW={'400px'} padding={2} id="capture">
+            <Container maxW={'400px'} padding={3} id="capture">
               <Box>
                 {checked ? (
                   <>

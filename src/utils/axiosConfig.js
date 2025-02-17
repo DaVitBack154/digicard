@@ -12,7 +12,7 @@ axiosInstance.interceptors.request.use((config) => {
     try {
       const bytes = CryptoJS.AES.decrypt(
         token,
-        import.meta.env.VITE_SECRET_KEY
+        import.meta.env.VITE_REACT_APP_API_KEY
       );
       const decryptedToken = bytes.toString(CryptoJS.enc.Utf8);
 
