@@ -11,7 +11,7 @@ const Bottombar = ({ onPageChange, currentPage }) => {
       w={'100%'}
       bg={'#25605D'}
       color={'#FFF'}
-      h="70px"
+      h="80px"
       bgImage="/bglogin.png"
       bgSize="cover"
       bgPosition="center bottom"

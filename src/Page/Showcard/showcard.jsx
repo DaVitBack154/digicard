@@ -165,7 +165,7 @@ const Showcard = () => {
                               className="detail"
                               fontFamily={'Montserrat'}
                             >
-                              0 28555 8222 ({Profile.phone_off || 'Loading...'})
+                              {Profile.phone_off || 'Loading...'}
                             </Text>
                           </Box>
                           <Box display={'flex'} className="namethai">
@@ -313,7 +313,7 @@ const Showcard = () => {
                               className="detail"
                               fontFamily={'Montserrat'}
                             >
-                              0 28555 8222 ({Profile.phone_off || 'Loading...'})
+                              {Profile.phone_off || 'Loading...'}
                             </Text>
                           </Box>
                           <Box display={'flex'} className="nameall">

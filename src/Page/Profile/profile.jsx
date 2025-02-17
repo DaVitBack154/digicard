@@ -183,7 +183,7 @@ const Profile = () => {
               <Box ml={5}>
                 <Text fontWeight={'600'}>Office-Phone</Text>
                 <Text color={'gray.500'} fontWeight={'300'}>
-                  0 2855 8222 (Ex {account.profile.phone_off})
+                  {account.profile.phone_off}
                   {/* 0-2855-8222 */}
                 </Text>
               </Box>

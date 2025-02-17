@@ -40,11 +40,11 @@ const Navbar = () => {
                 <img src="/ctr.png" alt="C" width={'24px'} />
               </Center>
               <Box ml={2}>
-                <Text fontWeight={'600'}>
+                <Text fontWeight={'600'} fontSize={'15px'}>
                   {account.profile.fname}
                   {/* Waruen Wanwanich */}
                 </Text>
-                <Text fontWeight={'300'} fontSize={'13px'} color={'#d9e1fa'}>
+                <Text fontWeight={'300'} fontSize={'14px'} color={'#d9e1fa'}>
                   {account.profile.position}
                 </Text>
               </Box>

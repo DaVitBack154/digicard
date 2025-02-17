@@ -60,7 +60,7 @@ const FontThaiCard = () => {
             <Box display={'flex'} className="namethai">
               <Text fontWeight={'bold'}>D:</Text>
               <Text ml={1} className="detail">
-                02-558-9009 ({account.profile.phone_off})
+                {account.profile.phone_off}
               </Text>
             </Box>
             <Box display={'flex'} className="namethai">

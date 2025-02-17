@@ -81,7 +81,7 @@ const FontCard = () => {
                 D:
               </Text>
               <Text ml={1} className="detail" fontFamily={'Montserrat'}>
-                0 28555 8222 ({account.profile.phone_off})
+                {account.profile.phone_off}
               </Text>
             </Box>
             <Box display={'flex'} className="nameall">
