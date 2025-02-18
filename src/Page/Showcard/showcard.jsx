@@ -10,7 +10,7 @@ const Showcard = () => {
   const { token } = useParams();
   const [checked, setChecked] = useState(false);
   const [Profile, setProfile] = useState(null);
-  console.log(token);
+  // console.log(token);
 
   const handleDownload = async () => {
     const element = document.getElementById('capture'); // ดึง element ที่มี id="capture"
@@ -159,7 +159,7 @@ const Showcard = () => {
                       <Flex w={'100%'} alignItems={'center'} mb={2} px={1}>
                         <Box w={'45%'}>
                           <Box display={'flex'} className="namethai">
-                            <Text fontWeight={'bold'}>D:</Text>
+                            <Text fontWeight={'bold'}>T:</Text>
                             <Text
                               ml={1}
                               className="detail"
@@ -306,7 +306,7 @@ const Showcard = () => {
                         <Box w={'50%'} fontFamily={'Montserrat'}>
                           <Box display={'flex'} className="nameall">
                             <Text fontWeight={'bold'} fontFamily={'Montserrat'}>
-                              D:
+                              T:
                             </Text>
                             <Text
                               ml={1}

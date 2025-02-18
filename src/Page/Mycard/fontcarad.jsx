@@ -78,7 +78,7 @@ const FontCard = () => {
           <Box w={'50%'} fontFamily={'Montserrat'}>
             <Box display={'flex'} className="nameall">
               <Text fontWeight={'bold'} fontFamily={'Montserrat'}>
-                D:
+                T:
               </Text>
               <Text ml={1} className="detail" fontFamily={'Montserrat'}>
                 {account.profile.phone_off}

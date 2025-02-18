@@ -6,7 +6,7 @@ const Bookcard = () => {
       <Box w={'100%'}>
         {/* chase */}
         <Box
-          h="200px"
+          h="210px"
           bgImage="/bg_tax.png"
           bgSize="cover"
           bgPosition="center"
@@ -34,6 +34,7 @@ const Bookcard = () => {
             <Box my={3}>
               <Box color={'gray.400'}>ที่อยู่ :</Box>
               <Box>
+                <Text>สำนักงานใหญ่ (แจ้งวัฒนะ)</Text>
                 <Text>34/6 หมู่ที่ 1 ถนนแจ้งวัฒนะ ตำบลคลองเกลือ</Text>
               </Box>
               <Box>
@@ -47,7 +48,7 @@ const Bookcard = () => {
               mt={2}
             >
               <Text color={'gray.400'}>Tax : </Text>
-              <Text ml={2}>0105546031394</Text>
+              <Text ml={2}>0107565000522</Text>
             </Box>
             <Box
               display={'flex'}
@@ -63,7 +64,7 @@ const Bookcard = () => {
         <br />
         {/* rway */}
         <Box
-          h="200px"
+          h="210px"
           bgImage="/bg_tax.png"
           bgSize="cover"
           bgPosition="center"
@@ -91,6 +92,7 @@ const Bookcard = () => {
             <Box my={3}>
               <Box color={'gray.400'}>ที่อยู่ :</Box>
               <Box>
+                <Text>สำนักงานใหญ่ (หลักสี่)</Text>
                 <Text>102/10 หมู่ที่ 4 ซอย 5 แยก 1 ถนนกำแพงเพชร 6</Text>
               </Box>
               <Box>
@@ -120,7 +122,7 @@ const Bookcard = () => {
         <br />
         {/* CFAM */}
         <Box
-          h="200px"
+          h="210px"
           bgImage="/bg_tax.png"
           bgSize="cover"
           bgPosition="center"
@@ -152,6 +154,7 @@ const Bookcard = () => {
             <Box my={3}>
               <Box color={'gray.400'}>ที่อยู่ :</Box>
               <Box>
+                <Text>สำนักงานใหญ่ (แจ้งวัฒนะ)</Text>
                 <Text>34/6 หมู่ที่ 1 ถนนแจ้งวัฒนะ ตำบลคลองเกลือ</Text>
               </Box>
               <Box>
@@ -178,6 +181,66 @@ const Bookcard = () => {
           </Box>
         </Box>
         {/* CFAM */}
+        <br />
+        {/* CHORD */}
+        <Box
+          h="210px"
+          bgImage="/bg_tax.png"
+          bgSize="cover"
+          bgPosition="center"
+          bgRepeat="no-repeat"
+          borderRadius={'10px'}
+          // color={'#FFF'}
+          w={'100%'}
+          fontSize={'13px'}
+        >
+          <Box p={4}>
+            <Box
+              display={'flex'}
+              justifyContent={'space-between'}
+              // alignItems={'center'}
+            >
+              <Box>
+                <Text fontWeight={'bold'}>
+                  COURTS MEGASTORE (THAILAND) CO., LTD.
+                </Text>
+                <Text>บริษัท คอร์ทส์ เม็กก้าสโตร์ (ประเทศไทย) จำกัด</Text>
+              </Box>
+              <Box position={'relative'} top={'3px'}>
+                <img src="/court.png" alt="bg_tax" width={65} />
+              </Box>
+            </Box>
+
+            <Box my={3}>
+              <Box color={'gray.400'}>ที่อยู่ :</Box>
+              <Box>
+                <Text>สำนักงานใหญ่ (แจ้งวัฒนะ)</Text>
+                <Text>34/6 หมู่ที่ 1 ถนนแจ้งวัฒนะ ตำบลคลองเกลือ</Text>
+              </Box>
+              <Box>
+                <Text>อำเภอปากเกร็ด จังหวัดนนทบุรี 11120</Text>
+              </Box>
+            </Box>
+            <Box
+              display={'flex'}
+              justifyContent={'start'}
+              alignItems={'center'}
+              mt={2}
+            >
+              <Text color={'gray.400'}>Tax : </Text>
+              <Text ml={2}>0105545083871</Text>
+            </Box>
+            <Box
+              display={'flex'}
+              justifyContent={'start'}
+              alignItems={'center'}
+            >
+              <Text color={'gray.400'}>Phone : </Text>
+              <Text ml={2}>02 826 5377</Text>
+            </Box>
+          </Box>
+        </Box>
+        {/* CHORD */}
         <br />
         <br />
         <br />

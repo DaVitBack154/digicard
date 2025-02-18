@@ -25,7 +25,7 @@ const Navbar = () => {
         w={'100%'}
         bg={'#25605D'}
         color={'#FFF'}
-        h="90px"
+        h="84px"
         bgImage="/bglogin.png"
         bgSize="cover"
         bgPosition="center bottom"
@@ -34,11 +34,21 @@ const Navbar = () => {
         borderBottomRightRadius="20px"
       >
         <Flex p={2}>
-          <Box w={'70%'} mt={3} ml={2}>
-            <Flex>
-              <Center bg={'#FFF'} rounded={'24px'} p={2}>
-                <img src="/ctr.png" alt="C" width={'24px'} />
+          <Box w={'70%'} mt={3}>
+            <Box
+              display={'flex'}
+              justifyContent={'start'}
+              alignItems={'center'}
+            >
+              <Center
+                bg={'#FFF'}
+                rounded={'24px'}
+                height={'32px'}
+                width={'32px'}
+              >
+                <img src="/ctr.png" alt="C" width={'20px'} />
               </Center>
+
               <Box ml={2}>
                 <Text fontWeight={'600'} fontSize={'15px'}>
                   {account.profile.fname}
@@ -48,7 +58,7 @@ const Navbar = () => {
                   {account.profile.position}
                 </Text>
               </Box>
-            </Flex>
+            </Box>
           </Box>
           <Box w={'30%'} mt={4}>
             <Box display={'flex'} justifyContent={'end'} alignItems={'center'}>
@@ -58,10 +68,9 @@ const Navbar = () => {
                 color={'#086f69'}
                 cursor={'pointer'}
                 rounded={'10px'}
-                mr={3}
                 onClick={() => onSignOutPress()}
               >
-                <IoMdLogOut size={25} />
+                <IoMdLogOut size={22} />
               </Box>
             </Box>
           </Box>

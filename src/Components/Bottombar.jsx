@@ -56,7 +56,7 @@ const Bottombar = ({ onPageChange, currentPage }) => {
           <Box>
             <ImDownload size={25} />
           </Box>
-          <Box fontSize={'small'}>Taxid</Box>
+          <Box fontSize={'small'}>Tax ID</Box>
         </Box>
         <Box
           display={'flex'}

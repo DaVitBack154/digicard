@@ -58,7 +58,7 @@ const FontThaiCard = () => {
         <Flex w={'100%'} alignItems={'center'} mb={2} px={1}>
           <Box w={'45%'}>
             <Box display={'flex'} className="namethai">
-              <Text fontWeight={'bold'}>D:</Text>
+              <Text fontWeight={'bold'}>T:</Text>
               <Text ml={1} className="detail">
                 {account.profile.phone_off}
               </Text>

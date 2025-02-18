@@ -70,7 +70,7 @@ const Profile = () => {
             w={'100%'}
           >
             <Box w={'20%'}>
-              <Box p={1}>
+              <Box p={1} display={'flex'} justifyContent={'center'}>
                 <img src="/cr.png" alt="C" width={'60px'} />
               </Box>
             </Box>
