@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axiosInstance from './utils/axiosConfig';
 import swal from 'sweetalert2';
 import Showcard from './Page/Showcard/showcard';
+import TableData from './Page/Table/TableData';
 
 function PrivateRoute() {
   const { token } = useSelector(selectAuth);
@@ -58,6 +59,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/showcard/:token" element={<Showcard />} />
+      <Route path="/adminpage" element={<TableData />} />
       {/* <Route path="/homepage" element={<Homepage />} /> */}
       <Route element={<PrivateRoute />}>
         <Route path="/homepage" element={<Homepage />} />

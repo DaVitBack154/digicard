@@ -41,7 +41,7 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/i,
             handler: 'CacheFirst', // โหลดจากแคชก่อน ถ้าไม่มีค่อยโหลดใหม่
             options: {
               cacheName: 'images-cache',
@@ -58,6 +58,7 @@ export default defineConfig({
           },
         ],
       },
+      injectManifest: false, // ไม่ต้องการใช้ไฟล์ manifest ที่กำหนดเอง
     }),
   ],
 });

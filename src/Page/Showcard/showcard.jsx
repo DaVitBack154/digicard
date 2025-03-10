@@ -10,7 +10,7 @@ const Showcard = () => {
   const { token } = useParams();
   const [checked, setChecked] = useState(false);
   const [Profile, setProfile] = useState(null);
-  // console.log(token);
+  console.log(token);
 
   const handleDownload = async () => {
     const element = document.getElementById('capture'); // ดึง element ที่มี id="capture"
@@ -30,7 +30,7 @@ const Showcard = () => {
   };
 
   useEffect(() => {
-    // console.log('useEffect ถูกเรียก', token);
+    console.log('useEffect ถูกเรียก', token);
     if (token) {
       getProfile();
     }

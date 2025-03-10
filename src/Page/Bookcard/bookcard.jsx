@@ -201,7 +201,7 @@ const Bookcard = () => {
               // alignItems={'center'}
             >
               <Box>
-                <Text fontWeight={'bold'}>
+                <Text fontWeight={'bold'} fontSize={'11px'}>
                   COURTS MEGASTORE (THAILAND) CO., LTD.
                 </Text>
                 <Text>บริษัท คอร์ทส์ เม็กก้าสโตร์ (ประเทศไทย) จำกัด</Text>
